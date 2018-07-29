@@ -6,6 +6,7 @@ TagManager:
   tags:
   - MeatCell
   - Ingredient
+  - WholeIngredient
   layers:
   - Default
   - TransparentFX

@@ -1301,8 +1301,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1152486388527270}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.19, y: 4.05, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.6847472, y: 9.811288, z: -4.2128906}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 4662602936651552}
@@ -3689,7 +3689,7 @@ MonoBehaviour:
     ctime1: 12336
     ctime2: 20624
     ctime3: 32382
-    ctime4: 42598
+    ctime4: 50115
     ctime5: 56476
     ctime6: 65535
     ctime7: 0
@@ -3704,7 +3704,7 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 7
     m_NumAlphaKeys: 2
-  burnThreshold: 25
+  burnThreshold: 71
   doneness:
     minHeat: 30
     maxHeat: 70

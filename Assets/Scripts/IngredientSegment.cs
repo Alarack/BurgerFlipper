@@ -38,7 +38,8 @@ public class IngredientSegment : MonoBehaviour
 
     private void Update()
     {
-        CheckAverageHeat();
+        if(ParentIngredient != null)
+            CheckAverageHeat();
     }
 
     private void CheckAverageHeat()
