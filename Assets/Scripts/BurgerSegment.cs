@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-[RequireComponent(typeof(FixedJoint2D))]
 public class BurgerSegment : MonoBehaviour
 {
     //X is frequency, Y is DampingForce
@@ -17,23 +16,29 @@ public class BurgerSegment : MonoBehaviour
     public void Start()
     {
         checkCells.AddRange(GetComponentsInChildren<MeatCell>());
-        checkCells.AddRange(GetComponent<FixedJoint2D>().attachedRigidbody.gameObject.GetComponentsInChildren<MeatCell>());
+        if (GetComponent<FixedJoint2D>() != null)
+        {
+            checkCells.AddRange(GetComponent<FixedJoint2D>().attachedRigidbody.gameObject.GetComponentsInChildren<MeatCell>());
+        }
     }
 
     public void Update()
     {
-        List<float> heatValues = new List<float>();
+        if(GetComponent<FixedJoint2D>() != null)
+        {
+            List<float> heatValues = new List<float>();
 
-        foreach(MeatCell cell in checkCells)
-        {
-            heatValues.Add(cell.currentHeat);
+            foreach (MeatCell cell in checkCells)
+            {
+                heatValues.Add(cell.currentHeat);
+            }
+            foreach (float value in heatValues)
+            {
+                averageHeat += value;
+            }
+            averageHeat = averageHeat / heatValues.Count;
+            UpdateFlexibility(averageHeat);
         }
-        foreach(float value in heatValues)
-        {
-            averageHeat += value;
-        }
-        averageHeat = averageHeat / heatValues.Count;
-        UpdateFlexibility(averageHeat);
     }
 
 
