@@ -31,7 +31,7 @@ public class HeatSource : MonoBehaviour {
         if (other.gameObject.tag != "MeatCell")
             return;
 
-        MeatCell cell = other.gameObject.GetComponent<MeatCell>();
+        FoodCell cell = other.gameObject.GetComponent<FoodCell>();
 
         cell.AddHeat(heatAmount);
     }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeatCell : MonoBehaviour {
+public class FoodCell : MonoBehaviour {
 
     public float currentHeat;
     public float maxHeat = 100f;
@@ -14,6 +14,7 @@ public class MeatCell : MonoBehaviour {
 
     public Gradient colorGradient;
     public LayerMask mask;
+    public IngredientSegment ParentSegement { get; private set; }
 
     private SpriteRenderer spriteRenderer;
 
@@ -21,6 +22,12 @@ public class MeatCell : MonoBehaviour {
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    public void Initialize(IngredientSegment parentSegment)
+    {
+        this.ParentSegement = parentSegment;
+        colorGradient = parentSegment.ParentIngredient.colorGradient;
     }
 
 
@@ -53,7 +60,7 @@ public class MeatCell : MonoBehaviour {
 
             //Debug.Log(hit.collider.gameObject.name + " was hit by a raycast");
 
-            MeatCell cell = hit.collider.GetComponent<MeatCell>();
+            FoodCell cell = hit.collider.GetComponent<FoodCell>();
 
             cell.AddHeat(value);
 

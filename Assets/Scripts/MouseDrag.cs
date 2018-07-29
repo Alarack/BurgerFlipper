@@ -52,12 +52,12 @@ public class MouseDrag : MonoBehaviour
                 body.constraints = RigidbodyConstraints2D.FreezeRotation;
             }
             body.MovePosition(new Vector3(mousePos.x, mousePos.y, -5f));
-            Debug.Log("Draging RigidBody");
+            //Debug.Log("Draging RigidBody");
         }
         else
         {
             transform.position = new Vector3(mousePos.x, mousePos.y, -5f);
-            Debug.Log("Draging Transform");
+            //Debug.Log("Draging Transform");
         }
     }
 }
