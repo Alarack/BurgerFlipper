@@ -5,6 +5,7 @@ using UnityEngine;
 public class MouseDrag : MonoBehaviour
 {
 
+    public bool freezeRotation;
     private Rigidbody2D body;
 
     private Vector2 lastMousePos;
@@ -21,6 +22,7 @@ public class MouseDrag : MonoBehaviour
         mouseDelta = (Vector2)Input.mousePosition - lastMousePos;
 
         lastMousePos = Input.mousePosition;
+
     }
 
 
@@ -31,7 +33,11 @@ public class MouseDrag : MonoBehaviour
         {
            body.velocity += mouseDelta * 1.1f;
 
-           // body.AddRelativeForce(mouseDelta);
+            if (freezeRotation)
+            {
+                body.constraints = RigidbodyConstraints2D.None;
+            }
+            // body.AddRelativeForce(mouseDelta);
         }
     }
 
@@ -41,6 +47,10 @@ public class MouseDrag : MonoBehaviour
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if (body != null)
         {
+            if (freezeRotation)
+            {
+                body.constraints = RigidbodyConstraints2D.FreezeRotation;
+            }
             body.MovePosition(new Vector3(mousePos.x, mousePos.y, -5f));
             Debug.Log("Draging RigidBody");
         }
