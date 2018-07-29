@@ -6,6 +6,7 @@ public class MeatCell : MonoBehaviour {
 
     public float currentHeat;
     public float maxHeat = 100f;
+    public float burnHeat = 150f;
 
     public float heatTransferMultiplier = 0.5f;
 

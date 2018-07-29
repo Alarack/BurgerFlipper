@@ -33,16 +33,15 @@ public class BurgerSegment : MonoBehaviour
             averageHeat += value;
         }
         averageHeat = averageHeat / heatValues.Count;
-
         UpdateFlexibility(averageHeat);
     }
 
 
     public void UpdateFlexibility(float value)
     {
-        if(value * 0.01f * modifier >= 0 || value * 0.01f * modifier <= 1)
+        if(value >= 0 || value <= 100)
         {
-            value = value * 0.01f * modifier;
+            value *= 0.01f;
             if(GetComponent<FixedJoint2D>().frequency < maxFlexibility.x)
             {
                 GetComponent<FixedJoint2D>().frequency = ((maxFlexibility.x - rawFlexibility.x) * value) + rawFlexibility.x;
