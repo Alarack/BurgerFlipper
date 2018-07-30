@@ -35,10 +35,10 @@ public class SlicerLever : MonoBehaviour {
 
     private void ActivateSwitches()
     {
-        if (angle <= -87f)
+        if (angle <= -55f)
             topHit = true;
 
-        if (angle >= 87f)
+        if (angle >= 55f)
             bottomHit = true;
 
         if (topHit && bottomHit)
