@@ -6,7 +6,7 @@ public class GreaseMaker : MonoBehaviour {
 
 
     public ParticleSystem greaseParticle;
-
+    public SoundEntry sizzSound;
 
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -15,6 +15,10 @@ public class GreaseMaker : MonoBehaviour {
 
         if(other.gameObject.tag == "Ingredient")
         {
+
+            //if(SoundManager.soundManager.sfxSource.isPlaying == false)
+                sizzSound.PlaySound();
+
 
             ContactPoint2D[] pointsOfContact = new ContactPoint2D[10];
 
